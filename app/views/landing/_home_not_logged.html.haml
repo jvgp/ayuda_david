@@ -1,0 +1,13 @@
+%h1 Homepage
+- if current_user
+  %p
+    Signed in as: #{current_user.email}
+  = link_to   'Profile', edit_user_registration_path, method: :get
+  - if current_user.device.nil?
+    = link_to 'Register your device', new_device_path, method: :get
+  = button_to 'Log out', destroy_user_session_path, method: :delete
+  - if current_user.admin
+    = link_to 'admin_devices', admin_devices_path
+- else
+  = button_to 'Register', new_user_registration_path, method: :get
+  = button_to 'Log in', new_user_session_path, method: :get

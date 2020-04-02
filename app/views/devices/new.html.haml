@@ -1,0 +1,16 @@
+%h1 Register your device
+- if @device.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@device.errors.count, "error")
+      prohibited this device from being saved:
+    %ul
+      - @device.errors.full_messages.each do |message|
+        %li= message
+= form_with scope: :device, url: devices_path, local: true do |f|
+  %p
+    = f.text_field :dispid
+    %br/
+  %p
+    = f.submit 'Register'
+    %br/

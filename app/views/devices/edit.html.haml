@@ -1,0 +1,17 @@
+%h1 Update the ID of your registered device
+- if @device.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@device.errors.count, "error")
+      prohibited this device from being updated:
+    %ul
+      - @device.errors.full_messages.each do |message|
+        %li= message
+= form_with(model: @device, local: true) do |f|
+  %p
+    = f.text_field :dispid
+    %br/
+  %p
+    = f.submit 'Update'
+    %br/
+= link_to 'Back to profile', edit_user_registration_path

@@ -1,0 +1,14 @@
+= form_with(model: admin_device, local: true) do |form|
+  - if admin_device.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(admin_device.errors.count, "error")
+        prohibited this admin_device from being saved:
+      %ul
+        - admin_device.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :serial
+    = form.text_field :serial
+  .actions
+    = form.submit

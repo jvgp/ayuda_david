@@ -1,0 +1,17 @@
+%p#notice= notice
+%h1 Admin Devices
+%table
+  %thead
+    %tr
+      %th Serial
+      %th{:colspan => "3"}
+  %tbody
+    - @admin_devices.each do |admin_device|
+      %tr
+        %td= admin_device.serial
+        %td= link_to 'Show', admin_device
+        %td= link_to 'Edit', edit_admin_device_path(admin_device)
+        %td= link_to 'Destroy', admin_device, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Admin Device', new_admin_device_path
+= link_to "Home", root_path

@@ -1,0 +1,18 @@
+%p#notice= notice
+%p
+  %strong Fname:
+  = @contact.fname
+%p
+  %strong Lname:
+  = @contact.lname
+%p
+  %strong Cellphone:
+  = @contact.cellphone
+%p
+  %strong Registrated at:
+  = @contact.created_at
+%p
+  %strong Last updated at:
+  = @contact.updated_at
+= link_to 'Back', contacts_path
+%td= link_to 'Edit', edit_contact_path(@contact)
