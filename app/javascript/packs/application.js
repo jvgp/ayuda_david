@@ -11,7 +11,6 @@ require("jquery_ujs")
 require("jquery")
 import "bootstrap";
 import "../stylesheets/application";
-import "./custom";
 import "./sb-admin-2.min.js";
 import "@fortawesome/fontawesome-free/js/all";
 
