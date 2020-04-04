@@ -6,6 +6,7 @@ class Contact < ApplicationRecord
 	before_update :validate_cellphone
 	belongs_to :user
 
+
 	def validate_cellphone
 		#FIXME, make this work so validation is done here and not at controller
 		#if Contact.where(user_id: self.user_id, cellphone: self.cellphone).exists?
@@ -19,4 +20,6 @@ class Contact < ApplicationRecord
 			end
 		#end
 	end
+
+	
 end

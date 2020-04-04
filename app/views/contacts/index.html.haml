@@ -19,5 +19,8 @@
           %td= link_to 'Edit', edit_contact_path(contact)
           %td= link_to 'Delete', contact, method: :delete, data: { confirm: 'Are you sure?' }
 %h4 TODO: add "Sync with device" button and functionality          
-= link_to 'New Contact', new_contact_path
+- if current_user.contacts.count < 5
+  = link_to 'New Contact', new_contact_path
+- else
+  You already have 5 contacts
 

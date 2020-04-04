@@ -17,7 +17,7 @@ class ContactsController < ApplicationController
     if Contact.where(user_id: current_user.id).count == 5
       #TODO: make this alert call take style from _alerts
       #FIXME: validate this at model
-      redirect_to contacts_path, :alert => 'You already have 5 contacts'
+      redirect_to contacts_path, :msg => 'You already have 5 contacts'
     else
       @contact = Contact.new
     end
