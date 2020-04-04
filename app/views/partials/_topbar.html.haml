@@ -1,0 +1,66 @@
+/ Topbar
+%nav.navbar.navbar-expand.navbar-light.bg-white.topbar.mb-4.static-top.shadow
+  / Sidebar Toggle (Topbar)
+  %button#sidebarToggleTop.btn.btn-link.d-md-none.rounded-circle.mr-3
+    %i.fa.fa-bars
+  / Topbar Navbar
+  %ul.navbar-nav.ml-auto
+    / Nav Item - Alerts
+    %li.nav-item.dropdown.no-arrow.mx-1
+      %a#alertsDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+        %i.fas.fa-bell.fa-fw
+        / Counter - Alerts
+        %span.badge.badge-danger.badge-counter 0
+      / Dropdown - Alerts
+      .dropdown-list.dropdown-menu.dropdown-menu-right.shadow.animated--grow-in{"aria-labelledby" => "alertsDropdown"}
+        %h6.dropdown-header
+          Alerts Center
+        %a.dropdown-item.d-flex.align-items-center{:href => "#"}
+          .mr-3
+            .icon-circle.bg-primary
+              %i.fas.fa-file-alt.text-white
+          %div
+            .small.text-gray-500
+              Logged in:
+            %span.font-weight-bold= DateTime.current.to_date
+        %a.dropdown-item.text-center.small.text-gray-500{:href => "#"} Show All Alerts
+    / Nav Item - Messages
+    %li.nav-item.dropdown.no-arrow.mx-1
+      %a#messagesDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+        %i.fas.fa-envelope.fa-fw
+        / Counter - Messages
+        %span.badge.badge-danger.badge-counter 1
+      / Dropdown - Messages
+      .dropdown-list.dropdown-menu.dropdown-menu-right.shadow.animated--grow-in{"aria-labelledby" => "messagesDropdown"}
+        %h6.dropdown-header
+          Message Center
+        %a.dropdown-item.d-flex.align-items-center{:href => "#"}
+          .dropdown-list-image.mr-3
+            %img.rounded-circle{:alt => "", :src => "https://source.unsplash.com/fn_BT9fwg_E/60x60"}/
+            .status-indicator.bg-success
+          .font-weight-bold
+            .text-truncate This is your new account
+            .small.text-gray-500 Administrator 
+            =DateTime.current.to_date
+        %a.dropdown-item.text-center.small.text-gray-500{:href => "#"} Read More Messages
+    .topbar-divider.d-none.d-sm-block
+    / Nav Item - User Information
+    %li.nav-item.dropdown.no-arrow
+      %a#userDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+        %span.mr-2.d-none.d-lg-inline.text-gray-600.small= current_user.email
+      / Dropdown - User Information
+      .dropdown-menu.dropdown-menu-right.shadow.animated--grow-in{"aria-labelledby" => "userDropdown"}
+        %a.dropdown-item{:href => edit_user_registration_path}
+          %i.fas.fa-user.fa-sm.fa-fw.mr-2.text-gray-400
+          Profile
+        %a.dropdown-item{:href => "#"}
+          %i.fas.fa-cogs.fa-sm.fa-fw.mr-2.text-gray-400
+          Settings
+        %a.dropdown-item{:href => "#"}
+          %i.fas.fa-list.fa-sm.fa-fw.mr-2.text-gray-400
+          Activity Log
+        .dropdown-divider
+        %a.dropdown-item{"data-target" => "#logoutModal", "data-toggle" => "modal", :href => "#"}
+          %i.fas.fa-sign-out-alt.fa-sm.fa-fw.mr-2.text-gray-400
+          Logout
+/ End of Topbar
